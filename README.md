@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+````
+$ curl http://localhost:3000/articles
+[{"id":1,"title":"Rails","body":"I like it","created_at":"2016-10-15T23:20:01.691Z","updated_at":"2016-10-15T23:20:01.691Z"}]
 
-Things you may want to cover:
+$ curl http://localhost:3000/articles -X POST -d "article[title]=Test"
+$ curl http://localhost:3000/articles
+[{"id":1,"title":"Rails","body":"I like it","created_at":"2016-10-15T23:20:01.691Z","updated_at":"2016-10-15T23:20:01.691Z"},{"id":2,"title":"Test","body":null,"created_at":"2016-10-15T23:42:23.394Z","updated_at":"2016-10-15T23:42:23.394Z"}]
 
-* Ruby version
+$ curl http://localhost:3000/articles/2 -X DELETE
+$ curl http://localhost:3000/articles
+[{"id":1,"title":"Rails","body":"I like it","created_at":"2016-10-15T23:20:01.691Z","updated_at":"2016-10-15T23:20:01.691Z"}]
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$ curl http://localhost:3000/articles/1 -X PUT -d "article[title]=Test"
+$ curl http://localhost:3000/articles
+[{"id":1,"title":"Test","body":"I like it","created_at":"2016-10-15T23:20:01.691Z","updated_at":"2016-10-15T23:43:24.090Z"}]
+```
